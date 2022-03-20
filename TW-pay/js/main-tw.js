@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/TW-pay/service_worker.js')
+    navigator.serviceWorker.register('/QR-Code-Generator/TW-pay/service_worker.js')
       .then(reg => console.log('SW registered!', reg))
       .catch(err => console.log('Boo!', err));
 }
@@ -30,7 +30,7 @@ bankAccount.onsuccess = function (event) {
 };
 // get TW bank code
 var bankList = {};
-fetch("tw-bank-data.json").then(function (response) {
+fetch("/QR-Code-Generator/TW-pay/tw-bank-data.json").then(function (response) {
     return response.json();
 }).then(function (json) {
     for (let i = 0; i < json["bank"].length; i++) {

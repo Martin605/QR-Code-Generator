@@ -1,35 +1,35 @@
 {
     "name": "台灣Pay 轉帳 QR Code 生成器",
     "short_name": "台灣Pay轉帳QRCode",
-    "start_url": "/TW-pay/",
+    "start_url": "/QR-Code-Generator/TW-pay/",
     "display": "standalone",
     "theme_color": "#FF7BAC",
     "background_color": "#FFF",
     "description": "台灣Pay 轉帳 QR Code 生成器",
     "prefer_related_applications": false,
     "icons": [{
-      "src": "/TW-pay/img/icons/icons-512x512.png",
+      "src": "/QR-Code-Generator/TW-pay/img/icons/icons-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }, {
-        "src": "/TW-pay/img/icons/icons-200x200.png",
+        "src": "/QR-Code-Generator/TW-pay/img/icons/icons-200x200.png",
         "sizes": "200x200",
         "type": "image/png"
     }, {
-      "src": "/TW-pay/img/icons/icons-192x192.png",
+      "src": "/QR-Code-Generator/TW-pay/img/icons/icons-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }, {
-      "src": "/TW-pay/img/icons/icons-100x100.png",
+      "src": "/QR-Code-Generator/TW-pay/img/icons/icons-100x100.png",
       "sizes": "100x100",
       "type": "image/png"
     }, {
-      "src": "/TW-pay/img/icons/icons-32x32.png",
+      "src": "/QR-Code-Generator/TW-pay/img/icons/icons-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     }, {
-      "src": "/TW-pay/img/icons/icons-16x16.png",
+      "src": "/QR-Code-Generator/TW-pay/img/icons/icons-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     }],
