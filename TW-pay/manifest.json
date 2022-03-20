@@ -1,11 +1,11 @@
 {
-    "name": "台灣Pay 轉帳 QR Code 生成器",
-    "short_name": "台灣Pay轉帳QRCode",
+    "name": "台灣共通支付QR Code生成器",
+    "short_name": "台灣共通支付QR Code生成器",
     "start_url": "/QR-Code-Generator/TW-pay/",
     "display": "standalone",
     "theme_color": "#FF7BAC",
     "background_color": "#FFF",
-    "description": "台灣Pay 轉帳 QR Code 生成器",
+    "description": "台灣共通支付QR Code生成器",
     "prefer_related_applications": false,
     "icons": [{
       "src": "/QR-Code-Generator/TW-pay/img/icons/icons-512x512.png",
