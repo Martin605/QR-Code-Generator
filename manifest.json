@@ -1,0 +1,42 @@
+{
+    "name": "QR Code 生成器",
+    "short_name": "QR Code 生成器",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "QR Code 生成器",
+    "icons": [{
+        "src": "/TW-pay/img/icons/icons.png",
+        "sizes": "200x200",
+        "type": "image/png"
+    }, {
+      "src": "/TW-pay/img/icons/icons-100x100.png",
+      "sizes": "100x100",
+      "type": "image/png"
+    }, {
+      "src": "/TW-pay/img/icons/icons-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }, {
+      "src": "/TW-pay/img/icons/icons-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }],
+    "shortcuts": [
+      {
+        "name": "台灣Pay 轉帳 QR Code 生成器",
+        "short_name": "台灣Pay QR Code",
+        "description": "台灣Pay 轉帳 QR Code 生成",
+        "url": "/TW-pay/",
+        "icons": [
+          { "src": "/TW-pay/img/icons/icons.png", "sizes": "200x200" },
+          { "src": "/TW-pay/img/icons/icons-100x100.png", "sizes": "100x100" },
+          { "src": "/TW-pay/img/icons/icons-32x32.png", "sizes": "32x32" },
+          { "src": "/TW-pay/img/icons/icons-16x16.png", "sizes": "16x16" }
+        ]
+      }
+    ],
+    "related_applications": [{
+      "platform": "web"
+    }]
+  }
