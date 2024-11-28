@@ -50,13 +50,9 @@ function setAccount(name, bank, account) {
         "account": account
     });
 }
-// get QR code from Google
+// get QR code from quickchart.io
 function getQRcode(IMGId, uri) {
-    fetch("https://chart.googleapis.com/chart", {
-        body: `cht=qr&chl=${uri}&chs=100x100`,
-        method: "POST",
-        mode: "cors"
-    }).then(function (response) {
+    fetch(`https://quickchart.io/qr?text=${uri}`).then(function (response) {
         return response.blob();
     }).then(function (blob) {
         var fileReader = new FileReader();
