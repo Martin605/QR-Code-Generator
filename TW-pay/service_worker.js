@@ -23,9 +23,9 @@ var urlsToCache = [
 ];
 console.log('loading sw');
 
+// Install event: populate the cache with the current version
 self.addEventListener('install', function(event) {
-    // Perform install steps
-    console.log('installing sw');
+    console.log('Installing service worker');
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function(cache) {
@@ -37,6 +37,24 @@ self.addEventListener('install', function(event) {
     );
 });
 
+// Activate event: clean up old caches
+self.addEventListener('activate', function(event) {
+    console.log('Activating service worker');
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cacheName) {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('Deleting old cache:', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
+});
+
+// Fetch event: serve cached content when available, fallback to network
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
