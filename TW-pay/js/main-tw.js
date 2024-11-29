@@ -50,22 +50,21 @@ function setAccount(name, bank, account) {
         "account": account
     });
 }
-// get QR code from quickchart.io
+// get QR code from qrcodejs
 function getQRcode(IMGId, uri) {
-    fetch(`https://quickchart.io/qr?text=${uri}`).then(function (response) {
-        return response.blob();
-    }).then(function (blob) {
-        var fileReader = new FileReader();
-        fileReader.onload = function (e) {
-            document.getElementById(IMGId).src = e.target.result;
-            document.getElementById(IMGId).previousElementSibling.remove();
-        };
-        fileReader.readAsDataURL(blob);
-    }).catch(error => {
-        setTimeout(function () {
-            getQRcode(IMGId, uri);
-        }, 2000);
-    });;
+    let qr_code_div = document.getElementById(IMGId);
+    let qr_code = new QRCode(qr_code_div, {
+        text: uri,
+        width: 100,
+        height: 100,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+    setTimeout(function (){
+        qr_code_div.querySelector('img').setAttribute('style','display: inline;');
+        document.getElementById(IMGId).previousElementSibling.remove();
+      }, 50);
 }
 // TWQRP
 class TWQRP {
@@ -194,13 +193,14 @@ function createQRCode() {
                         <div class="spinner-border text-primary" role="status">
                           <span class="visually-hidden">Loading...</span>
                         </div>
-                        <img id="QRCodeIMG${i}" with="100" heigh="100" 
+                        <div id="QRCodeIMG${i}" class="text-center"
                             twqr-bank-code="${bankData.bank.code}"
                             twqr-bank-name="${bankData.bank.name}"
                             twqr-account="${bankData.account}"
                             twqr-amount="${other.amount}"
                             twqr-message="${message}"
-                        />
+
+                        ></div>
                         <div class="btn-group col-12" role="group">
                             <button class="btn btn-primary" type="button" 
                             onclick="download('${bankData.bank.code}${bankData.account}.png', 'QRCodeIMG${i}');">
@@ -224,11 +224,11 @@ function createQRCode() {
                     <div class="spinner-border text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <img id="QRCodeIMG" with="100" heigh="100" 
+                    <div id="QRCodeIMG" class="text-center"
                         twqr-bank-code="${bankData.bank.code}"
                         twqr-bank-name="${bankData.bank.name}"
                         twqr-account="${bankData.account}"
-                    />
+                    > </div>
                     <div class="btn-group col-12" role="group">
                         <button class="btn btn-primary" type="button" 
                         onclick="download('${bankData.bank.code}${bankData.account}.png', 'QRCodeIMG');">
@@ -362,8 +362,9 @@ function twqr_ft_title(element) {
     if (data.message != "" && data.message!= null) {
         context.fillText(`訊息/留言/備註: ${data.message}`, 20, 100);
     }
-    context.fillText(`時間: ${new Date().toLocaleString('zh-TW')}`, 20, 240);
-    context.drawImage(element, 100, 120);
+    context.fillText(`時間: ${new Date().toLocaleString('zh-TW')}`, 20, 300);
+    let qr_element = element.querySelector('img');
+    context.drawImage(qr_element, canvas.width/4,canvas.height/3);
     return canvas.toDataURL("image/png");
 }
 function share(eid) {

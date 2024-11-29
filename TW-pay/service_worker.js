@@ -1,4 +1,4 @@
-var CACHE_NAME = 'static-v1';
+var CACHE_NAME = 'static-v20241130';
 var urlsToCache = [
     '/QR-Code-Generator/',
     '/QR-Code-Generator/TW-pay/',
@@ -17,7 +17,9 @@ var urlsToCache = [
     'https://code.jquery.com/jquery-3.6.0.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
     'https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js',
-    'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js'
+    'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js',
+    'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js',
+    'https://avatars2.githubusercontent.com/u/23187664'
 ];
 console.log('loading sw');
 
