@@ -160,9 +160,9 @@ function checkBankData() {
     return undefined;
 }
 // make QR Code
-function createQRCode() {
-    var bankData = checkBankData();
-    if (checkBankData() != undefined) {
+function createQRCode(bankData=undefined) {
+    if (bankData == undefined) bankData = checkBankData();
+    if (bankData != undefined) {
         var qrBody = document.getElementById("QRCode");
         qrBody.innerHTML = `<div class="col-12">
         <span class="material-icons-outlined align-middle">account_balance</span>
@@ -387,3 +387,29 @@ function download(name, eid) {
     document.body.removeChild(link);
     delete link;
 }
+function load_url_search() {
+    console.log("window.location.search check");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.size > 0) {
+        try {
+            let bankCode = urlParams.get('bank');
+            let ac = urlParams.get('account');
+            document.getElementById("bank").value = bankCode;
+            document.getElementById("account").value = ac;
+            if (urlParams.get('img')=="true") {
+                createQRCode({
+                    bank: {
+                        code: bankCode,
+                        name: ""
+                    },
+                    account: ac
+                });
+            }
+        } catch (error) {
+            location.replace("/QR-Code-Generator/TW-pay");
+        }
+    }
+    console.log("window.location.search check done");
+}
+window.onload = load_url_search();

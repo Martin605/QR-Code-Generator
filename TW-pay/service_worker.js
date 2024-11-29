@@ -1,4 +1,4 @@
-var CACHE_NAME = 'static-v20241130';
+var CACHE_NAME = 'static-v20241130_1';
 var urlsToCache = [
     '/QR-Code-Generator/',
     '/QR-Code-Generator/TW-pay/',
