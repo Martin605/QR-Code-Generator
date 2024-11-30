@@ -59,7 +59,7 @@ function getQRcode(IMGId, uri) {
         height: 100,
         colorDark : "#000000",
         colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
+        correctLevel : QRCode.CorrectLevel.L
     });
     setTimeout(function (){
         qr_code_div.querySelector('img').setAttribute('style','display: inline;');
@@ -193,7 +193,7 @@ function createQRCode(bankData=undefined) {
                         <div class="spinner-border text-primary" role="status">
                           <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div id="QRCodeIMG${i}" class="text-center"
+                        <div id="QRCodeIMG${i}" class="text-center m-3"
                             twqr-bank-code="${bankData.bank.code}"
                             twqr-bank-name="${bankData.bank.name}"
                             twqr-account="${bankData.account}"
@@ -224,7 +224,7 @@ function createQRCode(bankData=undefined) {
                     <div class="spinner-border text-primary" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div id="QRCodeIMG" class="text-center"
+                    <div id="QRCodeIMG" class="text-center m-3"
                         twqr-bank-code="${bankData.bank.code}"
                         twqr-bank-name="${bankData.bank.name}"
                         twqr-account="${bankData.account}"
